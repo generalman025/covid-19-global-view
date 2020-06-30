@@ -11,10 +11,11 @@ library(shiny)
 library(plotly)
 
 # Define UI for application that draws a histogram
-shinyUI(fluidPage(
+shinyUI(fluidPage(title="Covid-19 Pandemic Worldwide",
     fluidRow(
         column(6, style='padding:20px;', plotlyOutput("distPlot")), 
-        column(6, style='padding:20px;', plotlyOutput("barPlot"))),
+        column(6, style='padding:20px;', plotlyOutput("barPlot"))
+        ),
     fluidRow(
         column(6, h1("Covid-19 Pandemic Worldwide", align = "center"),
                HTML('<center>Source:<a href="https://corona.lmao.ninja/">Novel COVID API</a></center>')), 

@@ -1,0 +1,12 @@
+name: shiny-app
+title: shiny-app
+username:
+account: kiattisak-chaisomboon
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2515986
+bundleId: 3335040
+url: https://kiattisak-chaisomboon.shinyapps.io/shiny-app/
+when: 1593536307.77519
+asMultiple: FALSE
+asStatic: FALSE
