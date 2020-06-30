@@ -8,26 +8,26 @@
 #
 
 library(shiny)
+library(plotly)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
-
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
-
-    # Sidebar with a slider input for number of bins
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-            plotOutput("distPlot")
-        )
+    fluidRow(
+        column(6, style='padding:20px;', plotlyOutput("distPlot")), 
+        column(6, style='padding:20px;', plotlyOutput("barPlot"))),
+    fluidRow(
+        column(6, h1("Covid-19 Pandemic Worldwide", align = "center"),
+               HTML('<center>Source:<a href="https://corona.lmao.ninja/">Novel COVID API</a></center>')), 
+        column(6, 
+               selectInput("variable", "Please select the information:", c("Cases" = "cases",
+                                                         "Today Cases" = "todayCases",
+                                                         "Deaths" = "deaths",
+                                                         "Today Deaths" = "todayDeaths",
+                                                         "Recovered" = "recovered",
+                                                         "Today Recovered" = "todayRecovered",
+                                                         "Active Cases" = "active",
+                                                         "Critical Cases" = "critical",
+                                                         "Cases Per One Million" = "casesPerOneMillion",
+                                                         "Deaths Per One Million" = "deathsPerOneMillion")))
     )
 ))
