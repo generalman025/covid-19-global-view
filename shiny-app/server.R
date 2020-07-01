@@ -66,7 +66,8 @@ shinyServer(function(input, output) {
                         'casesPerOneMillion' = 'Cases Per One Million',
                         'deathsPerOneMillion' = 'Deaths Per One Million')
         covid19 <- covid19 %>% mutate(val=get(variable))
-        top10 <- covid19 %>% arrange(desc(val)) %>% top_n(10)
+        top10 <- covid19 %>% arrange(desc(val))
+        top10 <- top10[1:10,]
         top10$country <- factor(top10$country, 
                                 levels = unique(top10$country)[order(top10$val, decreasing = TRUE)])
         
